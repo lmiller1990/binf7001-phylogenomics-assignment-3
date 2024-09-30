@@ -72,6 +72,19 @@ Both have been suggested to help secure surface proteins to the cell wall in gra
 
 ## (a) Brief description of your approach (name(s) of program(s), key parameters used) 
 
+After using GeneMark to predict genes, I create three blast databases using the `makeblastdb` program. One for the contigs (`contigs.fa`, one for the genes (nucleotides, `nt.fa`) and one for the proteins (`protein.fa`). 
+
+I then used `blastn` query my `nt` and `contigs` databses using the 16s rRNA as the query. The query against `contigs.fa` found 2 results; the query against `nt.fa` provided none. This means two contigs sequences have similarity to the 16s rRNA query.
+
+Here's the two hits, shortened for brevity:
+
+```
+16S_rRNA	NODE_12_length_1715_cov_724.954529	94.565	1748
+16S_rRNA	NODE_977_length_54_cov_585.851868	91.935	62	
+```
+
+The two hits are 94.5% and 91.9% similar representing a similar match. The length is 1748 for the first candidate, and 62 for the second. The first hit is substantially longer, and represents a more complete match.
+
 ## (b) Total number of homologous protein groups, and number of single-copy groups 
 
 ## (c) 16S rRNA gene tree (8 taxa, rooted using outgroup)
