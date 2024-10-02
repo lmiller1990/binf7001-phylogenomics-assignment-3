@@ -74,22 +74,109 @@ Both have been suggested to help secure surface proteins to the cell wall in gra
 
 After using GeneMark to predict genes, I create three blast databases using the `makeblastdb` program. One for the contigs (`contigs.fa`, one for the genes (nucleotides, `nt.fa`) and one for the proteins (`protein.fa`). 
 
+```sh
+makeblastdb -dbtype nucl -in inputs/contigs.fa
+makeblastdb -dbtype nucl -in inputs/nc.fa
+makeblastdb -dbtype prot -in inputs/protein.fa
+```
+
 I then used `blastn` query my `nt` and `contigs` databses using the 16s rRNA as the query. The query against `contigs.fa` found 2 results; the query against `nt.fa` provided none. This means two contigs sequences have similarity to the 16s rRNA query.
+
+```sh
+echo "⚡️ Query inputs/contigs.fa"
+blastn -query gene_query.fa -db inputs/contigs.fa -outfmt 6 -evalue 1e-10
+
+echo "🚀 Query inputs/nc.fa"
+blastn -query gene_query.fa -db inputs/nc.fa -outfmt 6 -evalue 1e-10
+```
 
 Here's the two hits, shortened for brevity:
 
 ```
-16S_rRNA	NODE_12_length_1715_cov_724.954529	94.565	1748
-16S_rRNA	NODE_977_length_54_cov_585.851868	91.935	62	
+⚡️ Query inputs/contigs.fa
+16S_rRNA	NODE_12_length_1715_cov_724.954529	94.565	1748	73	17	121	1849	1745	1	0.0	2682
+16S_rRNA	NODE_977_length_54_cov_585.851868	91.935	62	0	1	1934	1995	1	57	7.97e-16	82.4
+🚀 Query inputs/nc.fa
+None!
 ```
 
 The two hits are 94.5% and 91.9% similar representing a similar match. The length is 1748 for the first candidate, and 62 for the second. The first hit is substantially longer, and represents a more complete match.
 
+I extracted it with:
+
+```sh
+samtools faidx -i inputs/contigs.fa NODE_12_length_1715_cov_724.954529:1-1745
+```
+
 ## (b) Total number of homologous protein groups, and number of single-copy groups 
+
+I created a new directory, `my_proteins` and softlinked the 7 protein databases. I included my own (`protein.fa`). I ran `orthofinder -og -f my_proteins`.
+
+The console output after running says "OrthoFinder assigned 17605 genes (92.2% of total) to 2795 orthogroups". There are 1008 single-copy genes.
 
 ## (c) 16S rRNA gene tree (8 taxa, rooted using outgroup)
 
+We can infer a tree using MUSCLE and convert to `nex` for usage with MyBayes:
+
+```sh
+muscle -in all_16s.fa > 16s_rRNA_gene_tree.aln
+readseq -a -f17 16s_rRNA_gene_tree.aln > 16s_rRNA_gene_tree.nex
+```
+
 ## (d) protein tree of the chosen housekeeping gene (8 taxa, rooted using outgroup)
+
+I chose dnab. It is
+
+```fasta
+>tr|A0A7T7NY26|A0A7T7NY26_STAPS Replicative DNA helicase OS=Staphylococcus pseudintermedius OX=283734 GN=dnaB PE=3 SV=1
+MDEMYEHNRMPHSHEAEQSVLGAIFLDPELMSSTQEILLPESFYRGAHQHIFRAMMDLNE
+DGKDIDIVTVLDRLTQEGVVNEAGGPQYLAEITSNVPTTRNIQYYTDVVFKNAVKRKLIH
+TADSIANDGYNDELDLDTVLNDAERRILELSSTRESDGFKDIRDVLGQVYDNAEQLDQNS
+GQTPGIPTGYRDLDQMTAGFNRNDLIILAARPSVGKTAFALNIAQKVATHEDQYTVGIFS
+LEMGADQLATRMICSSGNVDSNRLRTGTMTEEDWNRFTVAVGKLSRTKIFIDDTPGVRIT
+DIRSKCRRLKQEHGLDMIVIDYLQLIQGSGSRASDNRQQEVSEISRMLKAIARELECPVI
+ALSQLSRGVEQRQDKRPMMSDIRESGSIEQDADIVAFLYRDDYYNRGDGDDDDDDGGFEP
+QTNDENGEIEIIIAKRRNGPTGTVKLHFMKQYNKFTDIDYAHADMG
+```
+
+Next we use Orthofinder - the 7 proteins sets provided, and the predicted ones.
+
+```
+my_proteins
+|-- Macrococcus_caseolyticus.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Macrococcus_caseolyticus.faa
+|-- OrthoFinder
+|-- Staphylococcus_aureus_subsp_aureus_NCTC8325.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Staphylococcus_aureus_subsp_aureus_NCTC8325.faa
+|-- Staphylococcus_chromogenes.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Staphylococcus_chromogenes.faa
+|-- Staphylococcus_epidermidis.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Staphylococcus_epidermidis.faa
+|-- Staphylococcus_haemolyticus.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Staphylococcus_haemolyticus.faa
+|-- Staphylococcus_saprophyticus.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Staphylococcus_saprophyticus.faa
+|-- Staphylococcus_sciuri.faa -> /opt/BINF7001/2024/Prac9_2024/proteins/Staphylococcus_sciuri.faa
+`-- protein.fa
+```
+
+Output:
+
+```
+Writing orthogroups to file
+---------------------------
+OrthoFinder assigned 17605 genes (92.2% of total) to 2795 orthogroups. Fifty percent of all genes were in orthogroups with 8 or more genes (G50 was 8) and were contained in the largest 1084 orthogroups (O50 was 1084). There were 1194 orthogroups with all species present and 1008 of these consisted entirely of single-copy genes.
+
+2024-10-02 20:58:54 : Done orthogroups
+
+Results:
+    /home/s4206685/phylo/my_proteins/OrthoFinder/Results_Oct02/
+```
+
+To find the correct orthogroup, I did `blastp` on a few different proteins sets from the 8 I have. I got a few results. All of those had labels that appeared in the same orthogroup, `./Orthogroup_Sequences/OG0000161.fa`.
+
+It has 9 sequences. I was expected 8, since this is supposedly a single copy group. 
+
+Alignment:  
+
+```sh
+muscle -in OG0000161.fa > dnaB.aln
+readseq -a -f17 dnaB.aln > dnaB_tree.nex
+```
 
 ## (e) one key difference/similarity between the two trees
 
