@@ -1,0 +1,37 @@
+#NEXUS
+[ID: 9998114290]
+begin taxa;
+	dimensions ntax=9;
+	taxlabels
+		YP_500560
+		WP_012655
+		WP_078099
+		WP_103159
+		orf_1589
+		WP_011274
+		WP_048794
+		YP_498624
+		WP_001831
+		;
+end;
+begin trees;
+	translate
+		1	YP_500560,
+		2	WP_012655,
+		3	WP_078099,
+		4	WP_103159,
+		5	orf_1589,
+		6	WP_011274,
+		7	WP_048794,
+		8	YP_498624,
+		9	WP_001831
+		;
+   [Note: This tree contains information on the topology, 
+          branch lengths (if present), and the probability
+          of the partition indicated by the branch.]
+   tree con_all_compat = (1:1.158716e+00,((2:1.897544e-01,3:9.406267e-02)0.998:9.775340e-02,(((6:5.243224e-02,8:2.028653e-02)0.639:2.108601e-02,9:1.006257e-02)0.661:2.574526e-02,7:2.408662e-02)0.660:3.067599e-02)0.609:3.418882e-02,(4:2.806431e-02,5:2.466271e-02)0.537:3.221115e-02);
+
+   [Note: This tree contains information only on the topology
+          and branch lengths (median of the posterior probability density).]
+   tree con_all_compat = (1:1.158716e+00,((2:1.897544e-01,3:9.406267e-02):9.775340e-02,(((6:5.243224e-02,8:2.028653e-02):2.108601e-02,9:1.006257e-02):2.574526e-02,7:2.408662e-02):3.067599e-02):3.418882e-02,(4:2.806431e-02,5:2.466271e-02):3.221115e-02);
+end;

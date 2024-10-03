@@ -1,0 +1,35 @@
+#NEXUS
+[ID: 2563426173]
+begin taxa;
+	dimensions ntax=8;
+	taxlabels
+		caseolyticus
+		sciuri
+		saprophyticus
+		chromogenes
+		pseudintermedius
+		S_aureus
+		epidermidis
+		haemolyticus
+		;
+end;
+begin trees;
+	translate
+		1	caseolyticus,
+		2	sciuri,
+		3	saprophyticus,
+		4	chromogenes,
+		5	pseudintermedius,
+		6	S_aureus,
+		7	epidermidis,
+		8	haemolyticus
+		;
+   [Note: This tree contains information on the topology, 
+          branch lengths (if present), and the probability
+          of the partition indicated by the branch.]
+   tree con_all_compat = (1:1.365133e-01,2:6.754999e-02,(3:4.304169e-02,((((4:5.713112e-03,5:4.225680e-02)1.000:4.891225e-02,7:1.434645e-02)0.994:1.582389e-02,8:1.660753e-02)0.985:1.218990e-02,6:2.777473e-02)0.972:1.567056e-02)1.000:5.321959e-02);
+
+   [Note: This tree contains information only on the topology
+          and branch lengths (median of the posterior probability density).]
+   tree con_all_compat = (1:1.365133e-01,2:6.754999e-02,(3:4.304169e-02,((((4:5.713112e-03,5:4.225680e-02):4.891225e-02,7:1.434645e-02):1.582389e-02,8:1.660753e-02):1.218990e-02,6:2.777473e-02):1.567056e-02):5.321959e-02);
+end;

@@ -1,0 +1,330 @@
+Analysis completed in 7 mins 17 seconds
+      Analysis used 436.86 seconds of CPU time
+      Likelihood of best state for "cold" chain of run 1 was -3542.73
+      Likelihood of best state for "cold" chain of run 2 was -3542.73
+
+      Acceptance rates for the moves in the "cold" chain of run 1:
+         With prob.   (last 100)   chain accepted proposals by move
+            24.5 %     ( 11 %)     Dirichlet(Pi)
+            25.5 %     ( 27 %)     Slider(Pi)
+             0.1 %     (  0 %)     ExtSPR(Tau,V)
+             0.2 %     (  0 %)     ExtTBR(Tau,V)
+             0.2 %     (  0 %)     NNI(Tau,V)
+             0.3 %     (  0 %)     ParsSPR(Tau,V)
+            25.9 %     ( 22 %)     Multiplier(V)
+            31.8 %     ( 36 %)     Nodeslider(V)
+            25.6 %     ( 26 %)     TLMultiplier(V)
+
+      Acceptance rates for the moves in the "cold" chain of run 2:
+         With prob.   (last 100)   chain accepted proposals by move
+            24.4 %     ( 24 %)     Dirichlet(Pi)
+            25.2 %     ( 24 %)     Slider(Pi)
+             0.1 %     (  0 %)     ExtSPR(Tau,V)
+             0.2 %     (  1 %)     ExtTBR(Tau,V)
+             0.2 %     (  0 %)     NNI(Tau,V)
+             0.3 %     (  0 %)     ParsSPR(Tau,V)
+            25.2 %     ( 23 %)     Multiplier(V)
+            31.8 %     ( 24 %)     Nodeslider(V)
+            25.4 %     ( 21 %)     TLMultiplier(V)
+
+      Chain swap information for run 1:
+
+                   1       2       3       4
+           ----------------------------------
+         1 |            0.84    0.70    0.59
+         2 |  668039            0.86    0.73
+         3 |  667265  666069            0.87
+         4 |  665696  666290  666641
+
+      Chain swap information for run 2:
+
+                   1       2       3       4
+           ----------------------------------
+         1 |            0.84    0.71    0.59
+         2 |  666966            0.86    0.73
+         3 |  667690  666942            0.87
+         4 |  666021  666776  665605
+
+      Upper diagonal: Proportion of successful state exchanges between chains
+      Lower diagonal: Number of attempted state exchanges between chains
+
+      Chain information:
+
+        ID -- Heat
+       -----------
+         1 -- 1.00  (cold chain)
+         2 -- 0.91
+         3 -- 0.83
+         4 -- 0.77
+
+      Heat = 1 / (1 + T * (ID - 1))
+         (where T = 0.10 is the temperature and ID is the chain number)
+
+      Setting Nucmodel to 4by4
+      Set state frequency prior to default
+      Setting Rates to Gamma
+      Setting Ngammacat to 4
+      Successfully set likelihood model parameters
+      Summarizing parameters in files 16s_rRNA_gene_tree.nex.run1.p and 16s_rRNA_gene_tree.nex.run2.p
+      Writing summary statistics to file 16s_rRNA_gene_tree.nex.pstat
+      Using relative burnin ('relburnin=yes'), discarding the first 25 % of samples
+
+      Below are rough plots of the generation (x-axis) versus the log
+      probability of observing the data (y-axis). You can use these
+      graphs to determine what the burn in for your analysis should be.
+      When the log probability starts to plateau you may be at station-
+      arity. Sample trees and parameters after the log probability
+      plateaus. Of course, this is not a guarantee that you are at sta-
+      tionarity. Also examine the convergence diagnostics provided by
+      the 'sump' and 'sumt' commands for all the parameters in your
+      model. Remember that the burn in is the number of samples to dis-
+      card. There are a total of ngen / samplefreq samples taken during
+      a MCMC analysis.
+
+      Overlay plot for both runs:
+      (1 = Run number 1; 2 = Run number 2; * = Both runs)
+
+      +------------------------------------------------------------+ -3548.99
+      |                                                 1          |
+      |                                                2          1|
+      |                  1                                  1      |
+      |       2   1   1     2        1    2                        |
+      |         1   2                  1    *    1   1    1        |
+      |     *1          2  *   * 2     2        1   1      1   2   |
+      |    1   2 1   1    2     1  2  1  2   11 2            1  21 |
+      |2 212  1   2 1 22      2 212        2      12  1         12 |
+      |1*        2      1   11          1 1    2 22      222  1    |
+      |        1   2              1   2 21    2     2    1        2|
+      |  12        1   1            22         1     2 1    2  1   |
+      |      2  2        21        11                         2    |
+      |                       1            1 2        2      2     |
+      |                                                 2          |
+      |              2       2                     1               |
+      +------+-----+-----+-----+-----+-----+-----+-----+-----+-----+ -3550.43
+      ^                                                            ^
+      1000000                                                      4000000
+
+
+      Estimated marginal likelihoods for runs sampled in files
+         "16s_rRNA_gene_tree.nex.run1.p" and "16s_rRNA_gene_tree.nex.run2.p":
+         (Use the harmonic mean for Bayes factor comparisons of models)
+
+         (Values are saved to the file 16s_rRNA_gene_tree.nex.lstat)
+
+      Run   Arithmetic mean   Harmonic mean
+      --------------------------------------
+        1      -3547.29         -3556.39
+        2      -3547.37         -3556.13
+      --------------------------------------
+      TOTAL    -3547.33         -3556.27
+      --------------------------------------
+
+
+      Model parameter summaries over the runs sampled in files
+         "16s_rRNA_gene_tree.nex.run1.p" and "16s_rRNA_gene_tree.nex.run2.p":
+         Summaries are based on a total of 12002 samples from 2 runs.
+         Each run produced 8001 samples of which 6001 samples were included.
+         Parameter summaries saved to file "16s_rRNA_gene_tree.nex.pstat".
+
+                                            95% HPD Interval
+                                          --------------------
+      Parameter      Mean      Variance     Lower       Upper       Median    min ESS*  avg ESS    PSRF+
+      --------------------------------------------------------------------------------------------------
+      TL          0.115666    0.000078    0.098814    0.133505    0.115378   5991.15   5996.07    1.000
+      pi(A)       0.276255    0.000102    0.256852    0.296496    0.276137   4835.55   4928.09    1.000
+      pi(C)       0.215454    0.000087    0.196916    0.233461    0.215331   4912.51   5087.51    1.000
+      pi(G)       0.277551    0.000105    0.257070    0.296934    0.277443   4851.07   4852.89    1.000
+      pi(T)       0.230740    0.000092    0.212707    0.250352    0.230579   4705.03   5033.29    1.000
+      --------------------------------------------------------------------------------------------------
+      * Convergence diagnostic (ESS = Estimated Sample Size); min and avg values
+        correspond to minimal and average ESS among runs.
+        ESS value below 100 may indicate that the parameter is undersampled.
+      + Convergence diagnostic (PSRF = Potential Scale Reduction Factor; Gelman
+        and Rubin, 1992) should approach 1.0 as runs converge.
+
+
+   Setting sumt conformat to Simple
+   Setting sumt contype to Allcompat
+   Summarizing trees in files "16s_rRNA_gene_tree.nex.run1.t" and "16s_rRNA_gene_tree.nex.run2.t"
+   Using relative burnin ('relburnin=yes'), discarding the first 25 % of sampled trees
+   Writing statistics to files 16s_rRNA_gene_tree.nex.<parts|tstat|vstat|trprobs|con>
+   Examining first file ...
+   Found one tree block in file "16s_rRNA_gene_tree.nex.run1.t" with 8001 trees in last block
+   Expecting the same number of trees in the last tree block of all files
+
+   Tree reading status:
+
+   0      10      20      30      40      50      60      70      80      90     100
+   v-------v-------v-------v-------v-------v-------v-------v-------v-------v-------v
+   *********************************************************************************
+
+   Read a total of 16002 trees in 2 files (sampling 12002 of them)
+      (Each file contained 8001 trees of which 6001 were sampled)
+
+   General explanation:
+
+   In an unrooted tree, a taxon bipartition (split) is specified by removing a
+   branch, thereby dividing the species into those to the left and those to the
+   right of the branch. Here, taxa to one side of the removed branch are denoted
+   '.' and those to the other side are denoted '*'. Specifically, the '.' symbol
+   is used for the taxa on the same side as the outgroup.
+
+   In a rooted or clock tree, the tree is rooted using the model and not by
+   reference to an outgroup. Each bipartition therefore corresponds to a clade,
+   that is, a group that includes all the descendants of a particular branch in
+   the tree.  Taxa that are included in each clade are denoted using '*', and
+   taxa that are not included are denoted using the '.' symbol.
+
+   The output first includes a key to all the bipartitions with frequency larger
+   or equual to (Minpartfreq) in at least one run. Minpartfreq is a parameter to
+   sumt command and currently it is set to 0.10.  This is followed by a table
+   with statistics for the informative bipartitions (those including at least
+   two taxa), sorted from highest to lowest probability. For each bipartition,
+   the table gives the number of times the partition or split was observed in all
+   runs (#obs) and the posterior probability of the bipartition (Probab.), which
+   is the same as the split frequency. If several runs are summarized, this is
+   followed by the minimum split frequency (Min(s)), the maximum frequency
+   (Max(s)), and the standard deviation of frequencies (Stddev(s)) across runs.
+   The latter value should approach 0 for all bipartitions as MCMC runs converge.
+
+   This is followed by a table summarizing branch lengths, node heights (if a
+   clock model was used) and relaxed clock parameters (if a relaxed clock model
+   was used). The mean, variance, and 95 % credible interval are given for each
+   of these parameters. If several runs are summarized, the potential scale
+   reduction factor (PSRF) is also given; it should approach 1 as runs converge.
+   Node heights will take calibration points into account, if such points were
+   used in the analysis.
+
+   Note that Stddev may be unreliable if the partition is not present in all
+   runs (the last column indicates the number of runs that sampled the partition
+   if more than one run is summarized). The PSRF is not calculated at all if
+   the partition is not present in all runs.The PSRF is also sensitive to small
+   sample sizes and it should only be considered a rough guide to convergence
+   since some of the assumptions allowing one to interpret it as a true potential
+   scale reduction factor are violated in MrBayes.
+
+   List of taxa in bipartitions:
+
+      1 -- M_caseoly
+      2 -- S_sciuri
+      3 -- NODE_12_l
+      4 -- S_chromog
+      5 -- S_haemoly
+      6 -- S_saproph
+      7 -- S_aureus
+      8 -- S_epiderm
+
+   Key to taxon bipartitions (saved to file "16s_rRNA_gene_tree.nex.parts"):
+
+   ID -- Partition
+   --------------
+    1 -- .*******
+    2 -- .*......
+    3 -- ..*.....
+    4 -- ...*....
+    5 -- ....*...
+    6 -- .....*..
+    7 -- ......*.
+    8 -- .......*
+    9 -- ..**....
+   10 -- ..******
+   11 -- ....**..
+   12 -- ......**
+   13 -- ....****
+   --------------
+
+   Summary statistics for informative taxon bipartitions
+      (saved to file "16s_rRNA_gene_tree.nex.tstat"):
+
+   ID   #obs     Probab.     Sd(s)+      Min(s)      Max(s)   Nruns
+   -----------------------------------------------------------------
+    9  12002    1.000000    0.000000    1.000000    1.000000    2
+   10  12002    1.000000    0.000000    1.000000    1.000000    2
+   11  12002    1.000000    0.000000    1.000000    1.000000    2
+   12  11496    0.957840    0.001178    0.957007    0.958674    2
+   13  11424    0.951841    0.001650    0.950675    0.953008    2
+   -----------------------------------------------------------------
+   + Convergence diagnostic (standard deviation of split frequencies)
+     should approach 0.0 as runs converge.
+
+
+   Summary statistics for branch and node parameters
+      (saved to file "16s_rRNA_gene_tree.nex.vstat"):
+
+                                           95% HPD Interval
+                                         --------------------
+   Parameter      Mean       Variance     Lower       Upper       Median     PSRF+  Nruns
+   --------------------------------------------------------------------------------------
+   length[1]     0.038012    0.000026    0.028632    0.048553    0.037827    1.000    2
+   length[2]     0.004975    0.000004    0.001355    0.009035    0.004739    1.000    2
+   length[3]     0.007287    0.000005    0.003241    0.011655    0.007087    1.000    2
+   length[4]     0.004654    0.000003    0.001449    0.008191    0.004427    1.000    2
+   length[5]     0.002940    0.000002    0.000565    0.005697    0.002714    1.000    2
+   length[6]     0.008895    0.000006    0.004282    0.013415    0.008701    1.000    2
+   length[7]     0.008011    0.000005    0.003872    0.012525    0.007807    1.000    2
+   length[8]     0.005357    0.000004    0.001960    0.009035    0.005138    1.000    2
+   length[9]     0.011713    0.000008    0.006499    0.017539    0.011462    1.000    2
+   length[10]    0.011098    0.000007    0.005911    0.016272    0.010904    1.000    2
+   length[11]    0.005115    0.000004    0.001664    0.009049    0.004899    1.000    2
+   length[12]    0.003859    0.000003    0.001051    0.007051    0.003658    1.000    2
+   length[13]    0.003801    0.000003    0.000761    0.007052    0.003579    1.000    2
+   --------------------------------------------------------------------------------------
+   + Convergence diagnostic (PSRF = Potential Scale Reduction Factor; Gelman
+     and Rubin, 1992) should approach 1.0 as runs converge. NA is reported when
+     deviation of parameter values within all runs is 0 or when a parameter
+     value (a branch length, for instance) is not sampled in all runs.
+
+
+   Summary statistics for partitions with frequency >= 0.10 in at least one run:
+       Average standard deviation of split frequencies = 0.000566
+       Maximum standard deviation of split frequencies = 0.001650
+       Average PSRF for parameter values (excluding NA and >10.0) = 1.000
+       Maximum PSRF for parameter values = 1.000
+
+
+   Clade credibility values:
+
+   /----------------------------------------------------------------- M_caseoly (1)
+   |
+   |----------------------------------------------------------------- S_sciuri (2)
+   |
+   +                                                /---------------- NODE_12_l (3)
+   |               /---------------100--------------+
+   |               |                                \---------------- S_chromog (4)
+   |               |
+   \------100------+                                /---------------- S_haemoly (5)
+                   |                /------100------+
+                   |                |               \---------------- S_saproph (6)
+                   \-------95-------+
+                                    |               /---------------- S_aureus (7)
+                                    \-------96------+
+                                                    \---------------- S_epiderm (8)
+
+
+   Phylogram (based on average branch lengths):
+
+   /----------------------------------------------------------------- M_caseoly (1)
+   |
+   |-------- S_sciuri (2)
+   |
+   +                                     /------------- NODE_12_l (3)
+   |                  /------------------+
+   |                  |                  \-------- S_chromog (4)
+   |                  |
+   \------------------+             /----- S_haemoly (5)
+                      |     /-------+
+                      |     |       \--------------- S_saproph (6)
+                      \-----+
+                            |     /-------------- S_aureus (7)
+                            \-----+
+                                  \--------- S_epiderm (8)
+
+   |-------| 0.005 expected changes per site
+
+   Calculating tree probabilities...
+
+   Credible sets of trees (5 trees sampled):
+      99 % credible set contains 2 trees
+
+   Exiting mrbayes block
+   Reached end of file

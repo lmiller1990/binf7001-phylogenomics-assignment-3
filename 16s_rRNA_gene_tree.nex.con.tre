@@ -1,0 +1,35 @@
+#NEXUS
+[ID: 2135656478]
+begin taxa;
+	dimensions ntax=8;
+	taxlabels
+		M_caseoly
+		S_sciuri
+		S_pseudi
+		S_chromog
+		S_haemoly
+		S_saproph
+		S_aureus
+		S_epiderm
+		;
+end;
+begin trees;
+	translate
+		1	M_caseoly,
+		2	S_sciuri,
+		3	S_pseudi,
+		4	S_chromog,
+		5	S_haemoly,
+		6	S_saproph,
+		7	S_aureus,
+		8	S_epiderm
+		;
+   [Note: This tree contains information on the topology, 
+          branch lengths (if present), and the probability
+          of the partition indicated by the branch.]
+   tree con_all_compat = (1:3.782660e-02,2:4.739216e-03,((3:7.087417e-03,4:4.426984e-03)1.000:1.146215e-02,((5:2.713938e-03,6:8.701052e-03)1.000:4.899251e-03,(7:7.806829e-03,8:5.137810e-03)0.958:3.658371e-03)0.952:3.578869e-03)1.000:1.090439e-02);
+
+   [Note: This tree contains information only on the topology
+          and branch lengths (median of the posterior probability density).]
+   tree con_all_compat = (1:3.782660e-02,2:4.739216e-03,((3:7.087417e-03,4:4.426984e-03):1.146215e-02,((5:2.713938e-03,6:8.701052e-03):4.899251e-03,(7:7.806829e-03,8:5.137810e-03):3.658371e-03):3.578869e-03):1.090439e-02);
+end;
