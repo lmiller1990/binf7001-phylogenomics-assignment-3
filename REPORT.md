@@ -9,9 +9,12 @@ My dataset is ERR9872452. It was sequenced using the ILLUMINA NextSeq 500 sequen
 
 ## 1.2 Genome assembly
 
+## (a) Approach
+
 I used the velvet program to assembly the genome. Velvet requires a kmer parameter to be selected. I used the jellyfish program to count various kmers and graph them. Values tested were k=11, 17, 21, 27, 31, 51. 
 
 ![](./images/kmer_histograms.png)
+**Figure: Frequency of k-mers for varying k values**
 
 By visual inspection, either k=21, k=27 or k=31 would be good candidates. They all have a similar peak frequency of 40000. 
 
@@ -23,7 +26,7 @@ Next, I used velveth to generate the metadata for the alignment, and velvetg to 
 
 I ran this pipeline for the proposed kmer values:
 
-| kmer | N50 scaffold length | Maximum scaffold length | Total scaffold length | Total number of scaffolds | Contig mean length | % assembled |
+| kmer | N/L50 scaffold length | Maximum scaffold length | Total scaffold length | Total number of scaffolds | Contig mean length | % assembled |
 |------|------|------|------|------|------|------|
 | k21 | 82/9.227 KB | 60.132 KB | 2,514,955 | 1,082 | 99.98% | 2060637 / 2197746 (93.76%) |
 | k31 | 36/22.561 KB | 105.043 KB | 2,532,370 | 521 | 99.99% | 2188030 / 2197746 (99.56%) |
@@ -37,7 +40,17 @@ I settled on k=31. Here's why:
 
 - Has a high level of completeness (99.56%).
 - While the number of scaffolds that contribute to 50% of the length is low (36), the 50th largest is 22.563KB. This means we have a smaller number of longer scaffolds - this indicates larger, more complete scaffolds.
-- The L50 value is very large (105KB). Although only one scaffold, this metric supports the 36/22.561KB figure, and is further evidence for k=31, the final assembly is not fragmented.
+- The largest value is very large (105KB). Although only one scaffold, this metric supports the 36/22.561KB figure, and is further evidence for k=31, the final assembly is not fragmented.
+
+## (b) N50 scaffold length
+
+36 KB
+
+## (c) Maximum scaffold length
+## (d) Total scaffold length
+## (e) Total number of scaffolds
+## (f) Percentage of reads that are assembled into contigs
+## (g) Mean coverage for all contigs
 
 # 2. Ab initio gene prediction
 
