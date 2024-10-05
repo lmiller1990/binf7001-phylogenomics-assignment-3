@@ -45,7 +45,7 @@ I settled on **k=31**. Here's why:
 - The largest value is very large (105KB). Although only one scaffold, this metric supports the 36/22.561KB figure, and is further evidence for k=31, the final assembly is not fragmented.
 - **k=41** is also compelling. The large number of scaffolds (3166) indicates a more fragmented assembly. This can be indicative of a lack of continuity.
 
-**(b) N50 scaffold length**: 36 KB (as per table)
+**(b) N50 scaffold length**: 22.561 KB (as per table)
 
 **(c) Maximum scaffold length**: 105.043 KB
 
@@ -193,7 +193,7 @@ recA is a gene associated with DNA maintenance and repair (Lusetti, 2002). This 
 
 **Limitations of generated sequencing data**: Although the FastQC shows high quality reads, we don't know how pure the sequenced data is. There could be contamination from other bacteria species, perhaps making our sample seem more closely related to other strains than it really is. There is also the general challenges associated with de novo sequencing. It is especially challenging to map  repetitive areas in the genome accurately.
 
-**Limitations of the Approaches Adopted in Your Research**: When predicting genes using GeneMark, I used a matrix fil from Staphylococcus aureus. While closely related to our strain, it is possible this introduced biased or incorrect predictions. Although our client claims to be providing sequence data for Staphylococcus Pseudintermedius, we can't really know for certain. We should run GeneMark using a Staphylococcus Pseudintermedius matrix, and some other ones, too, and see how the results turn out.
+**Limitations of the Approaches Adopted in Your Research**: When predicting genes using GeneMark, I used a matrix file from Staphylococcus aureus. While closely related to our strain, it is possible this introduced biased or incorrect predictions. Although our client claims to be providing sequence data for Staphylococcus Pseudintermedius, we can't really know for certain. We should run GeneMark using a Staphylococcus Pseudintermedius matrix, and some other ones, too, and see how the results turn out.
 
 In addition, I would like to run a phylogenetic analysis against some other genes. 16S rRNA and recA are only two genes - it is worth considering some other housekeeping genes.
 
